@@ -1,11 +1,14 @@
 import { View } from "react-native";
 import CustomButton from "./CustomButton";
 
-export const CardProduct = ({ producto }: { producto: any }) => {
+export const CardProduct = ({ producto, width }: { producto: any, width?: number }) => {
     const { nombre, descripcion, precio, imagen } = producto;
 
     return (
-        <View className="w-[280px] bg-white rounded-2xl p-6 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300">
+        <View 
+            className="bg-white rounded-2xl p-6 text-center shadow-md transition duration-300"
+            style={{ width: width ?? 280 }}
+        >
 
             <View className="flex justify-center">
                 <img
