@@ -103,7 +103,7 @@ const App = () => {
 
         {/* 3. PRODUCTOS RECOMENDADOS (USANDO CARRUSEL) */}
         <View className="items-center px-4 py-10">
-          <Text className="text-gray-500 font-bold px-4 mb-3 text-xl uppercase tracking-widest">Artesanías Destacadas</Text>
+          <Text className="text-gray-500 font-roboto-bold px-4 mb-3 text-xl uppercase tracking-widest">PRODUCTOS DESTACADOS</Text>
         </View>
         <View className="mb-8 mx-80 px-8 py-10">
           <Carrusel
@@ -121,9 +121,9 @@ const App = () => {
             onProductPress={(item) => console.log('Producto seleccionado:', item.nombre)}
           />
           <View className='bg-quaternary-950 w-full'>
-            <Text className='text-quaternary-500 text-3xl ml-10 mt-10'>Piedras</Text>
-            <Text className='text-quaternary-500 text-5xl ml-10'>Volcanicas</Text>
-            <CustomButton children='Ver mas' className='w-60 ml-10 mt-3' />
+            <Text className='text-quaternary-500 font-roboto-bold text-3xl ml-10 mt-20'>PIEDRAS</Text>
+            <Text className='text-quaternary-500 font-roboto-bold text-5xl ml-10'>VOLCANICAS</Text>
+            <CustomButton children='Ver mas' className='bg-primary font-roboto-bold text-2xl w-60 ml-10 mt-10' />
           </View>
         </View>
 

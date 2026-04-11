@@ -8,7 +8,7 @@ export const CardProduct = ({ producto }: { producto: any }) => {
     const { nombre, descripcion, precio, imagen } = producto;
 
     return (
-        <View className="w-full bg-white rounded-2xl p-3 shadow-md">
+        <View className="w-full bg-transparent p-3">
 
             <View className="flex justify-center items-center">
                 <Image
@@ -18,7 +18,7 @@ export const CardProduct = ({ producto }: { producto: any }) => {
                 />
             </View>
 
-            <Text className="text-sm font-semibold text-gray-800 mt-3" numberOfLines={1}>
+            <Text className="text-sm font-roboto-semibold text-gray-800 mt-3" numberOfLines={1}>
                 {nombre}
             </Text>
             <Text className="text-xs text-gray-500 mt-1 mb-3" numberOfLines={2}>
@@ -26,7 +26,8 @@ export const CardProduct = ({ producto }: { producto: any }) => {
             </Text>
 
             <View className="flex-col mt-auto items-center">
-                <Text className="text-base font-bold text-gray-800 mb-2">
+                <CustomButton className="w-auto bg-color-primary font-roboto-bold text-2xl">Comprar</CustomButton>
+                <Text className="text-base font-roboto-bold text-gray-800 mb-2">
                     ${new Intl.NumberFormat("es-CO").format(precio)}
                 </Text>
                 <CustomButton 

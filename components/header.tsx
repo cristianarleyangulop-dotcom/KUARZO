@@ -33,13 +33,13 @@ const Header = () => {
             {/* Área de Acciones */}
             <View className="flex-row items-center gap-6">
                 <Pressable>
-                    <Text className="text-base font-medium text-gray-700 hover:text-gray-900">
+                    <Text className="text-base font-roboto-medium text-gray-700 hover:text-gray-900">
                         Login
                     </Text>
                 </Pressable>
 
                 <Pressable>
-                    <Text className="text-base font-medium text-gray-700 hover:text-gray-900">
+                    <Text className="text-base font-roboto-medium text-gray-700 hover:text-gray-900">
                         Sign Up
                     </Text>
                 </Pressable>
