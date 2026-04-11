@@ -1,8 +1,10 @@
 import React from 'react';
 import { Image, Text, View } from "react-native";
+import { useCart } from '../context/CartContext';
 import CustomButton from "./CustomButton";
 
 export const CardProduct = ({ producto }: { producto: any }) => {
+    const { addItem } = useCart();
     const { nombre, descripcion, precio, imagen } = producto;
 
     return (
@@ -27,7 +29,17 @@ export const CardProduct = ({ producto }: { producto: any }) => {
                 <Text className="text-base font-bold text-gray-800 mb-2">
                     ${new Intl.NumberFormat("es-CO").format(precio)}
                 </Text>
-                <CustomButton className="w-auto">Comprar</CustomButton>
+                <CustomButton 
+                    className="w-auto"
+                    onPress={() => addItem({
+                        id: nombre, // Usamos el nombre como ID temporal
+                        nombre: nombre,
+                        precio: precio,
+                        imagen: imagen
+                    })}
+                >
+                    Comprar
+                </CustomButton>
             </View>
 
         </View>
