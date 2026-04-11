@@ -1,26 +1,136 @@
+import CustomButton from '@/components/CustomButton';
 import React from 'react';
-import { View } from 'react-native';
-import { CardProduct } from '../components/CardProduct';
-import CustomButton from '../components/CustomButton';
+import { ScrollView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Carrusel from '../components/Carrusel';
+import FlutterComponent from '../components/Flutter';
 import Header from '../components/header';
 
 const App = () => {
 
-  const sampleProduct = {
-    nombre: "Pulsera Piedra Volcanica",
-    descripcion: "Pulsera elaborada con piedras volcanicas y dijes de acero inoxidable.",
-    precio: 45000,
-    imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  };
+  // Datos de prueba para mostrar el CardProduct y el Carrusel
+  const sampleProducts = [
+    {
+      nombre: "Pulsera Piedra Volcánica",
+      descripcion: "Pulsera elaborada con piedras volcanicas y dijes de acero inoxidable.",
+      precio: 45000,
+      imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Premium",
+      descripcion: "Elegante pulsera con acabados premium para cualquier ocasión.",
+      precio: 55000,
+      imagen: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Clásica",
+      descripcion: "Diseño minimalista ideal para el uso diario.",
+      precio: 35000,
+      imagen: "https://images.unsplash.com/photo-1573408301145-b98c46544405?q=80&w=1169&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Clásica",
+      descripcion: "Diseño minimalista ideal para el uso diario.",
+      precio: 35000,
+      imagen: "https://images.unsplash.com/photo-1573408301145-b98c46544405?q=80&w=1169&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Piedra Volcánica",
+      descripcion: "Pulsera elaborada con piedras volcanicas y dijes de acero inoxidable.",
+      precio: 45000,
+      imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Premium",
+      descripcion: "Elegante pulsera con acabados premium para cualquier ocasión.",
+      precio: 55000,
+      imagen: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Clásica",
+      descripcion: "Diseño minimalista ideal para el uso diario.",
+      precio: 35000,
+      imagen: "https://images.unsplash.com/photo-1573408301145-b98c46544405?q=80&w=1169&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Clásica",
+      descripcion: "Diseño minimalista ideal para el uso diario.",
+      precio: 35000,
+      imagen: "https://images.unsplash.com/photo-1573408301145-b98c46544405?q=80&w=1169&auto=format&fit=crop"
+    }
+  ];
+
+  const sampleProducts2 = [
+    {
+      nombre: "Pulsera Piedra Volcánica",
+      descripcion: "Pulsera elaborada con piedras volcanicas y dijes de acero inoxidable.",
+      precio: 45000,
+      imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1170&auto=format&fit=crop"
+    },
+    {
+      nombre: "Pulsera Premium",
+      descripcion: "Elegante pulsera con acabados premium para cualquier ocasión.",
+      precio: 55000,
+      imagen: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1170&auto=format&fit=crop"
+    }
+  ];
+
+  // Datos para el banner promocional
+  const promoBanners = [
+    { id: 1, imagen: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop" },
+    { id: 2, imagen: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop" }
+  ];
 
   return (
-    <View className='flex-1 bg-white items-center'>
-      <Header />
-      <CustomButton children="Botonzitoo" color="primary" className='w-1/2' />
-      <View className="mt-4">
-        <CardProduct producto={sampleProduct} />
-      </View>
-    </View>
+    <SafeAreaView className='flex-1 bg-white'>
+      <ScrollView className='flex-1 bg-white'>
+        {/* 1. HEADER */}
+        <View>
+          <View>
+            <Header />
+          </View>
+        </View>
+
+        {/* BANNER PROMOCIONAL (Carrusel Automático) */}
+        <View>
+          <Carrusel
+            type="images"
+            images={promoBanners.map(b => b.imagen)}
+            showDots={true}
+            autoPlay={true}
+          />
+        </View>
+
+        {/* 3. PRODUCTOS RECOMENDADOS (USANDO CARRUSEL) */}
+        <View className="items-center px-4 py-10">
+          <Text className="text-gray-500 font-bold px-4 mb-3 text-xl uppercase tracking-widest">Artesanías Destacadas</Text>
+        </View>
+        <View className="mb-8 mx-80 px-8 py-10">
+          <Carrusel
+            type="products"
+            products={sampleProducts}
+            onProductPress={(item) => console.log('Producto seleccionado:', item.nombre)}
+          />
+        </View>
+
+        {/* 3. PRODUCTOS RECOMENDADOS SEGUNDA PARTE (USANDO CARRUSEL) */}
+        <View className="mb-20 mx-80 px-8 flex flex-row">
+          <Carrusel
+            type="products"
+            products={sampleProducts2}
+            onProductPress={(item) => console.log('Producto seleccionado:', item.nombre)}
+          />
+          <View className='bg-quaternary-950 w-full'>
+            <Text className='text-quaternary-500 text-3xl ml-10 mt-10'>Piedras</Text>
+            <Text className='text-quaternary-500 text-5xl ml-10'>Volcanicas</Text>
+            <CustomButton children='Ver mas' className='w-60 ml-10 mt-3' />
+          </View>
+        </View>
+
+        {/* 5. PIE DE PÁGINA */}
+        <FlutterComponent />
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
