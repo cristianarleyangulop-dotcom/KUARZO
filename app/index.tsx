@@ -85,11 +85,7 @@ const App = () => {
     <SafeAreaView className='flex-1 bg-white'>
       <ScrollView className='flex-1 bg-white'>
         {/* 1. HEADER */}
-        <View>
-          <View>
-            <Header />
-          </View>
-        </View>
+        <Header />
 
         {/* BANNER PROMOCIONAL (Carrusel Automático) */}
         <View>
@@ -121,9 +117,9 @@ const App = () => {
             onProductPress={(item) => console.log('Producto seleccionado:', item.nombre)}
           />
           <View className='bg-quaternary-950 w-full'>
-            <Text className='text-quaternary-500 font-roboto-bold text-3xl ml-10 mt-20'>PIEDRAS</Text>
-            <Text className='text-quaternary-500 font-roboto-bold text-5xl ml-10'>VOLCANICAS</Text>
-            <CustomButton children='Ver mas' className='bg-primary font-roboto-bold text-2xl w-60 ml-10 mt-10' />
+            <Text className='text-quaternary-500 font-roboto-bold text-3xl ml-10 mt-20'>MAS</Text>
+            <Text className='text-quaternary-500 font-roboto-bold text-5xl ml-10'>PRODUCTOS</Text>
+            <CustomButton children='Ver mas' className='bg-primary rounded-md font-roboto-bold w-60 h-10 ml-10 mt-10 justify-center items-center' />
           </View>
         </View>
 
