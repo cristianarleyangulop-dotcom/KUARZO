@@ -1,31 +1,34 @@
 import React from 'react';
 import { Image, Pressable, Text, View } from "react-native";
 import { useCart } from '../context/CartContext';
+import { router } from "expo-router";
 
 export const CardProduct = ({ producto }: { producto: any }) => {
     const { addItem } = useCart();
-    const { nombre, descripcion, precio, imagen } = producto;
+    const { id, nombre, descripcion, precio, imagen, categoria } = producto;
 
     return (
         <View className="w-full bg-transparent">
-            {/* Sección superior con fondo gris */}
-            <View className="bg-transparent w-full h-44 flex justify-center items-center">
-                <Image
-                    source={{ uri: imagen }}
-                    className="w-full h-44"
-                    resizeMode="contain"
-                />
-            </View>
+            <Pressable onPress={() => router.push({ pathname: '/detalleProd', params: { id: id || nombre, nombre, descripcion, precio, imagen, categoria } })}>
+                {/* Sección superior con fondo gris */}
+                <View className="bg-transparent w-full h-44 flex justify-center items-center">
+                    <Image
+                        source={{ uri: imagen }}
+                        className="w-full h-44"
+                        resizeMode="contain"
+                    />
+                </View>
 
-            {/* Sección de textos */}
-            <View className="p-4 pb-2 h-24 justify-center">
-                <Text className="text-lg font-roboto-bold text-black text-center" numberOfLines={1}>
-                    {nombre}
-                </Text>
-                <Text className="text-sm font-opensans-regular text-gray-800 mt-2 text-center" numberOfLines={2}>
-                    {descripcion}
-                </Text>
-            </View>
+                {/* Sección de textos */}
+                <View className="p-4 pb-2 h-24 justify-center">
+                    <Text className="text-lg font-roboto-bold text-black text-center" numberOfLines={1}>
+                        {nombre}
+                    </Text>
+                    <Text className="text-sm font-opensans-regular text-gray-800 mt-2 text-center" numberOfLines={2}>
+                        {descripcion}
+                    </Text>
+                </View>
+            </Pressable>
 
             {/* Barra inferior: Precio y Botón rojo */}
             <View className="flex-row items-stretch mt-4">

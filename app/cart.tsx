@@ -16,6 +16,16 @@ export default function CartScreen() {
                 {/* Header global */}
                 <Header />
 
+                {/* Boton volver */}
+                <View className="px-10 max-w-7xl mx-auto w-full pt-6">
+                    <Pressable className="mb-4 flex-row items-center gap-2 self-start" onPress={() => router.back()}>
+                        <MaterialIcons name="arrow-back" size={20} color="#111827" />
+                        <Text className="font-roboto-bold text-sm text-[#111827]">
+                            Volver
+                        </Text>
+                    </Pressable>
+                </View>
+
                 {/* Contenido Principal */}
                 <View className="px-10 max-w-7xl mx-auto w-full flex-row">
 

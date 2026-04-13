@@ -106,7 +106,7 @@ const App = () => {
           <Carrusel
             type="products"
             products={sampleProducts}
-            onProductPress={(item) => console.log('Producto seleccionado:', item.nombre)}
+            onProductPress={(item) => router.push({ pathname: '/detalleProd', params: { id: item.id || item.nombre, nombre: item.nombre, descripcion: item.descripcion, precio: item.precio, imagen: item.imagen, categoria: item.categoria || '' } })}
           />
         </View>
 
@@ -115,7 +115,7 @@ const App = () => {
           <Carrusel
             type="products"
             products={sampleProducts2}
-            onProductPress={(item) => console.log('Producto seleccionado:', item.nombre)}
+            onProductPress={(item) => router.push({ pathname: '/detalleProd', params: { id: item.id || item.nombre, nombre: item.nombre, descripcion: item.descripcion, precio: item.precio, imagen: item.imagen, categoria: item.categoria || '' } })}
           />
           <View className='bg-quaternary-950 w-full'>
             <Text className='text-quaternary-500 font-roboto-bold text-3xl ml-10 mt-20'>MAS</Text>

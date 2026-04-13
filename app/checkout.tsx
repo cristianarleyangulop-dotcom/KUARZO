@@ -71,7 +71,7 @@ const CheckoutScreen = () => {
                         <Pressable className="mb-6 flex-row items-center gap-2" onPress={() => router.back()}>
                             <MaterialIcons name="arrow-back" size={20} color="#111827" />
                             <Text className="font-roboto-bold text-sm text-[#111827]">
-                                Volver al carrito
+                                Volver
                             </Text>
                         </Pressable>
 
