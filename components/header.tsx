@@ -1,10 +1,12 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { Image, Pressable, Text, TextInput, View } from 'react-native';
+import { useCart } from '../context/CartContext';
 
 const Header = () => {
+    const { toggleSidebar, totalItems } = useCart();
     return (
-        <View className="flex-row items-center justify-between w-full px-6 py-4 bg-white">
+        <View className="flex-row items-center justify-between w-full px-6 py-4 bg-white shadow-sm">
 
             {/* Área del Logo */}
             <View className="flex-row items-center justify-center">
@@ -31,19 +33,24 @@ const Header = () => {
             {/* Área de Acciones */}
             <View className="flex-row items-center gap-6">
                 <Pressable>
-                    <Text className="text-base font-medium text-gray-700 hover:text-gray-900">
+                    <Text className="text-base font-roboto-medium text-gray-700 hover:text-gray-900">
                         Login
                     </Text>
                 </Pressable>
 
                 <Pressable>
-                    <Text className="text-base font-medium text-gray-700 hover:text-gray-900">
+                    <Text className="text-base font-roboto-medium text-gray-700 hover:text-gray-900">
                         Sign Up
                     </Text>
                 </Pressable>
 
-                <Pressable className="ml-2">
+                <Pressable className="ml-2 relative" onPress={toggleSidebar}>
                     <MaterialIcons name="shopping-cart" size={24} color="#4B5563" />
+                    {totalItems > 0 && (
+                        <View className="absolute -top-2 -right-3 bg-red-500 rounded-full w-5 h-5 items-center justify-center">
+                            <Text className="text-white text-xs font-bold">{totalItems}</Text>
+                        </View>
+                    )}
                 </Pressable>
             </View>
 
